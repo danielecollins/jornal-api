@@ -1,0 +1,41 @@
+{
+  "name": "cse341-personal-project",
+  "version": "1.0.0",
+  "description": "This is a repo for my personal project in cse341",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "swagger": "node ./swagger.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielecollins/cse341-personal-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielecollins/cse341-personal-project/issues"
+  },
+  "homepage": "https://github.com/danielecollins/cse341-personal-project#readme",
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.7.1",
+    "swagger-autogen": "^2.21.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.4.0",
+    "swagger-ui-express": "^4.4.0"
+  }
+}

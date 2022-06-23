@@ -1,0 +1,17 @@
+{
+    "jornal": {
+        "username": "lomolo",
+        "entry": "I played golf today and I had a lot of fun.",
+        "entryDate": "2022-06-22"
+    },
+    "jornal2": {
+        "username": "lomolo",
+        "entry": "I worked today",
+        "entryDate": "2022-06-21"
+    },
+    "jornal3": {
+        "username": "adigolfer01",
+        "entry": "I went to church.",
+        "entryDate": "2022-06-19"
+    }
+}
