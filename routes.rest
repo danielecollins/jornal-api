@@ -1,6 +1,19 @@
 // LOCALHOST
 ### Get all users
 GET http://localhost:8080/user
+
+### Update a user by username
+PUT http://localhost:8080/user/lomolo HTTP/1.1
+content-type: application/json
+
+{
+    "password":"Wasspord123!",
+    "name": "Dan Collins"
+}
+
+### Delete a user by username
+DELETE http://localhost:8080/user/adigolfer01 HTTP/1.1
+
 ### Create a jornal entry
 POST http://localhost:8080/jornal HTTP/1.1
 content-type: application/json
@@ -14,6 +27,19 @@ content-type: application/json
 // PRODUCTION Deploy
 ### Get all users
 GET https://cse341-personal-project/user
+
+### Update a user by username
+PUT https://cse341-personal-project/user/lomolo HTTP/1.1
+content-type: application/json
+
+{
+    "password":"Wasspord123!",
+    "name": "Dan Collins"
+}
+
+### Delete a user by username
+DELETE https://cse341-personal-project/user/adigolfer01 HTTP/1.1
+
 ### Create a jornal entry
 POST https://cse341-personal-project/jornal HTTP/1.1
 content-type: application/json
