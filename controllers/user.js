@@ -4,7 +4,7 @@ const passwordUtil = require('../util/passwordComplexityCheck');
 
 module.exports.create = (req, res) => {
   try {
-    if (!req.body.username || !req.body.password) {
+    if (!req.body.username || !req.body.password || !req.body.name) {
       res.status(400).send({ message: 'Content can not be empty!' });
       return;
     }
