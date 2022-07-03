@@ -1,5 +1,6 @@
 const db = require('../models');
 const Jornal = db.jornal;
+const ObjectId = require('mongodb').ObjectId;
 
 module.exports.create = (req, res) => {
   try {
@@ -44,8 +45,8 @@ module.exports.getAllEntriesForUser = (req, res) => {
 
 module.exports.getEntry = (req, res) => {
   try {
-    const _id = req.params._id;
-    Jornal.find({ _id: _id })
+    const jornalId = new ObjectId(req.params.id);
+    Jornal.find({ _id: jornalId })
     .then((data) => {
       res.status(200).send(data);
     })
@@ -61,12 +62,12 @@ module.exports.getEntry = (req, res) => {
 
 module.exports.updateEntry = async (req, res) => {
   try {
-    const _id = req.params._id;
-    if (!_id) {
+    const jornalId = new ObjectId(req.params.id);
+    if (!jornalId) {
       res.status(400).send({ message: 'Invalid ID Supplied' });
       return;
     }
-    Jornal.findOne({ _id: _id }, function (err, jornal) {
+    Jornal.findOne({ _id: jornalId }, function (err, jornal) {
       jornal.username = req.body.username;
       jornal.entry = req.body.entry;
       jornal.entryDate = req.body.entryDate;
@@ -86,12 +87,12 @@ module.exports.updateEntry = async (req, res) => {
 
 module.exports.deleteEntry = async (req, res) => {
   try {
-    const _id = req.params._id;
-    if (!_id) {
+    const jornalId = new ObjectId(req.params.id);
+    if (!jornalId) {
       res.status(400).send({ message: 'Invalid ID Supplied' });
       return;
     }
-    Jornal.deleteOne({ _id: _id }, function (err, result) {
+    Jornal.deleteOne({ _id: jornalId }, function (err, result) {
       if (err) {
         res.status(500).json(err || 'Some error occurred while deleting the jornal entry.');
       } else {
