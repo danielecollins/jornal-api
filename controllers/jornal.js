@@ -49,7 +49,6 @@ module.exports.getEntry = (req, res) => {
     Jornal.find({ _id: jornalId })
     .then((data) => {
       res.status(200).send(data);
-      console.log(data);
     })
     .catch((err) => {
       res.status(500).send({
