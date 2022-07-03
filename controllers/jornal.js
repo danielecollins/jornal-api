@@ -48,7 +48,7 @@ module.exports.getEntry = (req, res) => {
     const jornalId = req.params.id;
     Jornal.findById(jornalId)
     .then((data) => {
-      res.status(200).send(data);
+      res.status(200).send(data).send("poop");
     })
     .catch((err) => {
       res.status(500).send({
