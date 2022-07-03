@@ -46,9 +46,10 @@ module.exports.getAllEntriesForUser = (req, res) => {
 module.exports.getEntry = (req, res) => {
   try {
     const jornalId = new ObjectId(req.params.id);
-    Jornal.findOne({ _id: jornalId })
+    Jornal.find({ _id: jornalId })
     .then((data) => {
       res.status(200).send(data);
+      console.log(data);
     })
     .catch((err) => {
       res.status(500).send({
