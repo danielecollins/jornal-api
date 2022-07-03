@@ -44,8 +44,8 @@ module.exports.getAllEntriesForUser = (req, res) => {
 
 module.exports.getEntry = (req, res) => {
   try {
-    const id = req.params.id;
-    Jornal.find({ id: id })
+    const _id = req.params._id;
+    Jornal.find({ _id: _id })
     .then((data) => {
       res.status(200).send(data);
     })
@@ -61,12 +61,12 @@ module.exports.getEntry = (req, res) => {
 
 module.exports.updateEntry = async (req, res) => {
   try {
-    const id = req.params.id;
-    if (!id) {
+    const _id = req.params._id;
+    if (!_id) {
       res.status(400).send({ message: 'Invalid ID Supplied' });
       return;
     }
-    Jornal.findOne({ id: id }, function (err, jornal) {
+    Jornal.findOne({ _id: _id }, function (err, jornal) {
       jornal.username = req.body.username;
       jornal.entry = req.body.entry;
       jornal.entryDate = req.body.entryDate;
@@ -86,12 +86,12 @@ module.exports.updateEntry = async (req, res) => {
 
 module.exports.deleteEntry = async (req, res) => {
   try {
-    const id = req.params.id;
-    if (!id) {
+    const _id = req.params._id;
+    if (!_id) {
       res.status(400).send({ message: 'Invalid ID Supplied' });
       return;
     }
-    Jornal.deleteOne({ id: id }, function (err, result) {
+    Jornal.deleteOne({ _id: _id }, function (err, result) {
       if (err) {
         res.status(500).json(err || 'Some error occurred while deleting the jornal entry.');
       } else {
