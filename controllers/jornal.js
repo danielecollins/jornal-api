@@ -24,3 +24,81 @@ module.exports.create = (req, res) => {
     res.status(500).json(err);
   }
 };
+
+module.exports.getAllEntriesForUser = (req, res) => {
+  try {
+    const username = req.params.username;
+    Jornal.find({ username: username })
+    .then((data) => {
+      res.status(200).send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || 'Some error occurred while retrieving jornal entries.'
+      });
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+module.exports.getEntry = (req, res) => {
+  try {
+    const id = req.params.id;
+    Jornal.find({ id: id })
+    .then((data) => {
+      res.status(200).send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || 'Some error occurred while retrieving jornal entries.'
+      });
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+module.exports.updateEntry = async (req, res) => {
+  try {
+    const id = req.params.id;
+    if (!id) {
+      res.status(400).send({ message: 'Invalid ID Supplied' });
+      return;
+    }
+    Jornal.findOne({ id: id }, function (err, jornal) {
+      jornal.username = req.body.username;
+      jornal.entry = req.body.entry;
+      jornal.entryDate = req.body.entryDate;
+
+      jornal.save(function (err) {
+        if (err) {
+          res.status(500).json(err || 'Some error occurred while updating the jornal entry');
+        } else {
+          res.status(204).send();
+        }
+      });
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+module.exports.deleteEntry = async (req, res) => {
+  try {
+    const id = req.params.id;
+    if (!id) {
+      res.status(400).send({ message: 'Invalid ID Supplied' });
+      return;
+    }
+    Jornal.deleteOne({ id: id }, function (err, result) {
+      if (err) {
+        res.status(500).json(err || 'Some error occurred while deleting the jornal entry.');
+      } else {
+        res.status(204).send(result);
+      }
+    });
+  } catch (err) {
+    res.status(500).json(err || 'Some error occurred while deleting the jornal entry.');
+  }
+};
