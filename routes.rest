@@ -37,6 +37,9 @@ content-type: application/json
     "entryDate": "2022-06-19"
 }
 
+### Get a jornal by date
+GET http://localhost:8080/jornal/2022-06-25T00:00:00.000+00:00
+
 // PRODUCTION Deploy
 ### Get all users
 GET https://cse341-personal-project/user

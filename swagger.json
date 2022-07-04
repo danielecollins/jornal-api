@@ -203,27 +203,6 @@
         }
       }
     },
-    "/jornal/{entryDate}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "entryDate",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
     "/jornal/{id}": {
       "put": {
         "description": "",

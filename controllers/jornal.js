@@ -43,23 +43,6 @@ module.exports.getAllEntriesForUser = (req, res) => {
   }
 };
 
-module.exports.getEntryByDate = (req, res) => {
-  try {
-    const entryDate = new Date(req.params.entryDate);
-    Jornal.find({ entryDate: `${entryDate}T00:00:00.000+00:00` })
-    .then((data) => {
-      res.status(200).send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving jornal entries.'
-      });
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-}
-
 module.exports.updateEntry = async (req, res) => {
   try {
     const jornalId = new ObjectId(req.params.id);
