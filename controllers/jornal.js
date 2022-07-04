@@ -45,7 +45,7 @@ module.exports.getAllEntriesForUser = (req, res) => {
 
 module.exports.getEntryByDate = (req, res) => {
   try {
-    const entryDate = req.params.entryDate;
+    const entryDate = new Date(req.params.entryDate);
     Jornal.find({ entryDate: entryDate })
     .then((data) => {
       res.status(200).send(data);
