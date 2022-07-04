@@ -203,10 +203,17 @@
         }
       }
     },
-    "/jornal/entryDate": {
+    "/jornal/{entryDate}": {
       "get": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "entryDate",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
