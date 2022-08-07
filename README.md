@@ -1,2 +1,2 @@
-# cse341-personal-project
-This is a repo for my personal project in cse341
+# Jornal API
+[Click here] to check out the API documentation.
