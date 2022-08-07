@@ -1,2 +1,2 @@
 # Jornal API
-[Click here] to check out the API documentation.
+[Click here](https://cse341-personal-project.herokuapp.com/api-docs/) to check out the API documentation.
